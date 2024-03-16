@@ -40,6 +40,7 @@ function handleImageClick(event) {
   for (let i = 0; i < state.allProducts.length; i++) {
     if (imageClicked === state.allProducts[i].name) {
       state.allProducts[i].timesClicked++;
+      // console.log('state.allProducts[i].timesClicked', state.allProducts[i].timesClicked);
       votingRounds--;
       renderProductImages();
     }
@@ -47,6 +48,7 @@ function handleImageClick(event) {
     if (votingRounds === 0) {
       imgContainer.removeEventListener('click', handleImageClick);
       state.saveToLocalStorage();
+      console.log('state after all clicks', state);
     }
   }
 }
